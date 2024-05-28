@@ -1,0 +1,589 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is an API contract for Powerflex",
+    "version": "1.0.0",
+    "title": "Swagger API docs for Powerflex",
+    "termsOfService": "http://swagger.io/terms/",
+    "contact": {
+      "email": "pasala.kk@gmail.com"
+    },
+    "license": {
+      "name": "Apache 3.1",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Sprocket",
+      "description": "Everything about Sprocket"
+    },
+    {
+      "name": "Factory",
+      "description": "Everything about Sprocket factory"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/api/v1/factories/{id}": {
+      "get": {
+        "tags": [
+          "Factories"
+        ],
+        "summary": "Get factory by ID",
+        "operationId": "getFactory",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "required": true,
+            "description": "Numeric ID of the factory to get"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/200"
+                },
+                {
+                  "properties": {
+                    "data": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/FactoryResponse"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "schema": {
+              "$ref": "#/definitions/404"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/sprockets": {
+      "get": {
+        "tags": [
+          "SpRockets"
+        ],
+        "summary": "Get all sprockets",
+        "operationId": "getAllSpRockets",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/200"
+                },
+                {
+                  "properties": {
+                    "data": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/SpRocket"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "schema": {
+              "$ref": "#/definitions/404"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "SpRockets"
+        ],
+        "summary": "Create single sprocket",
+        "operationId": "createSpRocket",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/SpRocketRequest"
+                }
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/200"
+                },
+                {
+                  "properties": {
+                    "data": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/SpRocket"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "schema": {
+              "$ref": "#/definitions/404"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/sprockets/{id}": {
+      "get": {
+        "tags": [
+          "SpRockets"
+        ],
+        "summary": "Get single sprocket",
+        "operationId": "getSpRocket",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "required": true,
+            "description": "Numeric ID of the factory to get"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/200"
+                },
+                {
+                  "properties": {
+                    "data": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/SpRocket"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "schema": {
+              "$ref": "#/definitions/404"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "SpRockets"
+        ],
+        "summary": "Update single sprocket",
+        "operationId": "updateSpRocket",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "required": true,
+            "description": "Numeric ID of the factory to get"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/SpRocketRequest"
+                }
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/200"
+                },
+                {
+                  "properties": {
+                    "data": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/SpRocket"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "schema": {
+              "$ref": "#/definitions/404"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "200": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/TraceId"
+        }
+      ],
+      "properties": {
+        "status": {
+          "type": "integer",
+          "format": "int32",
+          "example": 200
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "201": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/TraceId"
+        }
+      ],
+      "properties": {
+        "status": {
+          "type": "integer",
+          "format": "int32",
+          "example": 201
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "400": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/TraceId"
+        }
+      ],
+      "description": "Bad request",
+      "properties": {
+        "status": {
+          "type": "integer",
+          "format": "int32",
+          "example": 400
+        },
+        "message": {
+          "type": "string"
+        },
+        "errorCode": {
+          "type": "string"
+        }
+      }
+    },
+    "403": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/TraceId"
+        }
+      ],
+      "description": "Forbidden",
+      "properties": {
+        "status": {
+          "type": "integer",
+          "format": "int32",
+          "example": 403
+        },
+        "message": {
+          "type": "string"
+        },
+        "errorCode": {
+          "type": "string"
+        }
+      }
+    },
+    "404": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/TraceId"
+        }
+      ],
+      "description": "Not found",
+      "properties": {
+        "status": {
+          "type": "integer",
+          "format": "int32",
+          "example": 404
+        },
+        "message": {
+          "type": "string"
+        },
+        "errorCode": {
+          "type": "string"
+        }
+      }
+    },
+    "409": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/TraceId"
+        }
+      ],
+      "description": "Conflict",
+      "properties": {
+        "status": {
+          "type": "integer",
+          "format": "int32",
+          "example": 409
+        },
+        "message": {
+          "type": "string"
+        },
+        "errorCode": {
+          "type": "string"
+        }
+      }
+    },
+    "422": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/TraceId"
+        }
+      ],
+      "description": "Invalid input",
+      "properties": {
+        "status": {
+          "type": "integer",
+          "format": "int32",
+          "example": 405
+        },
+        "errorCode": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "fieldName": {
+                "type": "string"
+              },
+              "error": {
+                "type": "string"
+              },
+              "display": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "500": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/TraceId"
+        }
+      ],
+      "description": "Internal server error",
+      "properties": {
+        "status": {
+          "type": "integer",
+          "format": "int32",
+          "example": 500
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "Factory": {
+      "type": "object",
+      "description": "factory Info",
+      "required": [
+        "sprocketProductionActual",
+        "sprocketProductionGoal",
+        "time",
+        "id"
+      ],
+      "properties": {
+        "sprocketProductionActual": {
+          "type": "array"
+        },
+        "sprocketProductionGoal": {
+          "type": "array"
+        },
+        "time": {
+          "type": "array"
+        },
+        "id": {
+          "type": "integer"
+        }
+      }
+    },
+    "SpRocketRequest": {
+      "type": "object",
+      "description": "Sprocket Info",
+      "required": [
+        "teeth",
+        "pitchDiameter",
+        "outsideDiameter",
+        "id",
+        "pitch"
+      ],
+      "properties": {
+        "teeth": {
+          "type": "integer"
+        },
+        "pitchDiameter": {
+          "type": "integer"
+        },
+        "outsideDiameter": {
+          "type": "integer"
+        },
+        "pitch": {
+          "type": "integer"
+        }
+      }
+    },
+    "SpRocket": {
+      "type": "object",
+      "description": "Sprocket Info",
+      "required": [
+        "teeth",
+        "pitchDiameter",
+        "outsideDiameter",
+        "id",
+        "pitch"
+      ],
+      "properties": {
+        "teeth": {
+          "type": "integer"
+        },
+        "pitchDiameter": {
+          "type": "integer"
+        },
+        "outsideDiameter": {
+          "type": "integer"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "pitch": {
+          "type": "integer"
+        }
+      }
+    },
+    "TraceId": {
+      "type": "object",
+      "properties": {
+        "traceId": {
+          "type": "string"
+        }
+      }
+    },
+    "FactoryResponse": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Factory"
+        }
+      ]
+    },
+    "SpRocketResponse": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SpRocket"
+        }
+      ]
+    }
+  },
+  "externalDocs": {
+    "description": "Find out more about Swagger",
+    "url": "http://swagger.io"
+  }
+}

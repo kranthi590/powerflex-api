@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:latest
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - RATE_LIMIT_TIME=10000
+      - RATE_LIMIT_REQUEST=100
+    ports:
+      - '5432:5432'
+  api:
+    build: .
+    environment:
+      - PORT=3000
+      - SQL_CONNECTION_URL=postgresql://postgres:postgres@postgres:5432
+    ports:
+      - '3000:3000'
+    depends_on:
+      - postgres
